@@ -23,13 +23,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
-      -uses: actions/checkou@v2
-      -name: Build and push Docker images
-      uses: docker/build-push-actio@v2.6.1
-      with:
-        context: ./src  
-        file: ./src/Dockerfile
-        push: true
-        tags: |
-          luiztabosa/rotten-potatoes:latest
-          luiztabosa/rotten-potatoes:${{github.run_number }}
+      - uses: actions/checkout@v2
+      - name: Build and push Docker images
+        uses: docker/build-push-actio@v2.6.1
+        with:
+          context: ./src  
+          file: ./src/Dockerfile
+          push: true
+          tags: |
+            luiztabosa/rotten-potatoes:latest
+            luiztabosa/rotten-potatoes:${{github.run_number }}
